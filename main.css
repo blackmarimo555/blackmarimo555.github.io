@@ -1,3 +1,10 @@
 .hidden{
     display: none;
 }
+#settei,#tag{
+    border: 1px solid black;
+    width: 300px;
+    border-radius: 16px;
+    background: rgb(14, 183, 235);
+    text-align: center;
+}

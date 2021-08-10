@@ -1,7 +1,8 @@
 'use strict';
 {
-    const $settei = document.getElementById('settei');
+    const $settei = document.getElementById('ee');
     const settei = $settei.children;
+
     let s = 0;
     let totalGame = 0;
     let medal = 0;
@@ -20,9 +21,7 @@
     ];
     //設定が選択されたら設定選択ボタンを消す
     function load(){
-        for(let i = 0; i < settei.length; i++){
-            settei[i].classList.add('hidden');
-        }
+        document.getElementById('settei').classList.add('hidden');
         document.getElementById('tag').classList.remove('hidden');
     }
 
