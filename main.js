@@ -107,6 +107,13 @@
             i++;
         }
     }
+    function game2000(){
+        let i = 0;
+        while(i<2000){
+            game1();
+            i++;
+        }
+    }
     function game8000(){
         let i = 0;
         while(i<8000){
@@ -129,6 +136,9 @@
     });
     document.getElementById('game100').addEventListener('click',()=>{
         game100();        
+    });
+    document.getElementById('game2000').addEventListener('click',()=>{
+        game2000();        
     });
     document.getElementById('game8000').addEventListener('click',()=>{
         game8000();        
