@@ -9,6 +9,15 @@
     let big = 0;
     let reg = 0;
     let mascat = 0;
+
+    function reset(){
+        s=0;
+        totalGame=0;
+        medal=0;
+        big=0;
+        reg=0;
+        mascat=0;
+    }
     const ko = [
         //BIG REG チェリーBIG チェリーREG ぶどう チェリー リプ 中チェ
         [163,98,45,54,10321,1721,8978,20],
@@ -91,12 +100,12 @@
             document.getElementById('resolt').textContent = 'はずれ';
             // console.log('はずれ');
         }
-        gameData();
     }
     function game10(){
         let i = 0;
         while(i<10){
             game1();
+            gameData();
             i++;
         }
     }
@@ -104,6 +113,7 @@
         let i = 0;
         while(i<100){
             game1();
+            gameData();
             i++;
         }
     }
@@ -111,6 +121,15 @@
         let i = 0;
         while(i<2000){
             game1();
+            gameData();
+            i++;
+        }
+    }
+    function game4000(){
+        let i = 0;
+        while(i<4000){
+            game1();
+            gameData();
             i++;
         }
     }
@@ -118,6 +137,7 @@
         let i = 0;
         while(i<8000){
             game1();
+            gameData();
             i++;
         }
     }
@@ -140,11 +160,97 @@
     document.getElementById('game2000').addEventListener('click',()=>{
         game2000();        
     });
+    document.getElementById('game4000').addEventListener('click',()=>{
+        game4000();        
+    });
     document.getElementById('game8000').addEventListener('click',()=>{
         game8000();        
     });
     document.getElementById('sCheck').addEventListener('click',()=>{
         sCheck();        
     });
+    document.getElementById('reset').addEventListener('click',()=>{
+        reset();
+        document.getElementById('gameData1').textContent = '';
+        document.getElementById('gameData2').textContent = '';
+        document.getElementById('resolt').textContent = '';
+        document.getElementById('settei').classList.remove('hidden');
+        document.getElementById('tag').classList.add('hidden');
+    })
+    const alls = document.querySelectorAll('input');
+    const allsarr =[];
+    function setarr(){
+        for(let i=0;i<6;i++){
+            for(let j=0;j<alls[i].value;j++){
+                const sabarr =[];
+                sabarr[0] = alls[i].name;
+                allsarr.push(sabarr[0]);                
+            }
+        }
+    }
+    function saffle(){
+        for(let i=0;i<allsarr.length;i++){
+            const a =Math.floor(Math.random()*(allsarr.length-1-i));
+            [allsarr[allsarr.length-1-i],allsarr[a]]=
+            [allsarr[a],allsarr[allsarr.length-i-1]];
+        }
+    }
+    let mode;
+    function makeList(){
+        const list = document.getElementById('datalist');
+        for(let i=0;i<allsarr.length;i++){
+            s=allsarr[i];
+            for(let f=0;f<mode;f++){
+                game1();
+            }
+            const li = document.createElement('li');
+            li.textContent = `totalgame:${totalGame} BIG:${big} REG:${reg} ボーナス合算:1/${Math.floor(totalGame/(big+reg))}`;
+            list.appendChild(li);
+            const btn = document.createElement('button');
+            btn.textContent='設定を確認する';
+            btn.addEventListener('click',()=>{
+                const p = document.createElement('p');
+                p.textContent = `設定は${allsarr[i]}です`
+                li.appendChild(p);
+                setTimeout(()=>{p.remove()},1000);                
+            })
+            list.appendChild(btn);
+            reset();
+        }
+    }
+    document.getElementById('hsm2000').addEventListener('click',()=>{
+        mode =2000;
+        setarr();
+        saffle();
+        makeList();
+        document.getElementById('hsmg').classList.add('hidden');
+        document.getElementById('hsmresolt').classList.remove('hidden');
+    })
+    document.getElementById('hsm4000').addEventListener('click',()=>{
+        mode =4000;
+        setarr();
+        saffle();
+        makeList();
+        document.getElementById('hsmg').classList.add('hidden');
+        document.getElementById('hsmresolt').classList.remove('hidden');
+    })
+    document.getElementById('hsm').addEventListener('click',()=>{
+        document.getElementById('hsmg').classList.remove('hidden');
+        document.getElementById('settei').classList.add('hidden');
+    })
+    document.getElementById('allreset').addEventListener('click',()=>{
+        const li = document.getElementById(datalist);
+        while(datalist.firstChild){
+            datalist.removeChild(datalist.firstChild);
+        }
+        const g = allsarr.length
+        for(let i=0;i<g;i++){
+            allsarr.pop();
+        }
+        document.getElementById('hsmresolt').classList.add('hidden');
+        document.getElementById('settei').classList.remove('hidden');
+
+    })
+        
 
 }

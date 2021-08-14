@@ -19,7 +19,38 @@
             <button>6</button>
             <button>?</button>
         </div>
+        <div id="hsm">
+            <button>ホールシュミレーションモード</button>
+        </div>
     </div>
+
+    <div id="hsmg" class="hidden">
+        <label for="1">設定1の数</label>
+        <input type="number" name="1" id=""value="0">
+        <br>
+        <label for="2">設定2の数</label>
+        <input type="number" name="2" id=""value="0">
+        <br>
+        <label for="3">設定3の数</label>
+        <input type="number" name="3" id=""value="0">
+        <br>
+        <label for="4">設定4の数</label>
+        <input type="number" name="4" id=""value="0">
+        <br>
+        <label for="5">設定5の数</label>
+        <input type="number" name="5" id=""value="0">
+        <br>
+        <label for="6">設定6の数</label>
+        <input type="number" name="6" id=""value="0">
+        <button id="hsm2000">2000Gモードでスタート</button>
+        <button id="hsm4000">4000Gモードでスタート</button>
+    </div>
+
+    <div id="hsmresolt" class="hidden">
+        <ul id="datalist"></ul>
+        <button id="allreset">最初から</button>
+    </div>
+
     <div class="hidden" id="tag">
         <p id="gameData1"> </p>
         <p id="gameData2"> </p>
@@ -28,8 +59,10 @@
         <button id="game10">10ゲーム回す</button>
         <button id="game100">100ゲーム回す</button>
         <button id="game2000">2000ゲーム回す</button>
+        <button id="game4000">4000ゲーム回す</button>
         <button id="game8000">8000ゲーム回す</button>
         <button id="sCheck">設定を確認する</button>
+        <button id="reset">設定選択からやりなおす</button>
     </div>
     <script src="main.js"></script>
 </body>
