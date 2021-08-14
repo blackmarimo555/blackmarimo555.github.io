@@ -204,7 +204,7 @@
                 game1();
             }
             const li = document.createElement('li');
-            li.textContent = `totalgame:${totalGame} BIG:${big} REG:${reg} ボーナス合算:1/${Math.floor(totalGame/(big+reg))}`;
+            li.textContent = `${i+1} totalgame:${totalGame} BIG:${big} REG:${reg} ボーナス合算:1/${Math.floor(totalGame/(big+reg))}`;
             list.appendChild(li);
             const btn = document.createElement('button');
             btn.textContent='設定を確認する';

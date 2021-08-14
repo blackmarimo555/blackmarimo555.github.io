@@ -1,11 +1,14 @@
 .hidden{
     display: none;
 }
+body{
+    font-size: 24px;
+}
 #settei,#tag,#hsmg,#hsmresolt{
     border: 1px solid black;
     width: 300px;
     border-radius: 16px;
-    background: rgb(14, 183, 235);
+    background: #a9ebff;
     text-align: center;
 }
 button{
@@ -17,6 +20,6 @@ button{
 }
 #hsmresolt li{
     margin-top: 5px;
-    border-bottom: 1px solid black;
+    border-top: 1px solid black;
     list-style: none;
 }
